@@ -14,3 +14,23 @@ button {
 .example_button {
   font-size: 10px;
 }
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  background: transparent;
+}
+
+.mattoolbar a {
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  z-index: 999;
+  padding: 0.3rem;
+  width: 100%;
+  background-color: var(--second-color);
+}

@@ -1,4 +1,83 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-primary: #121212;
+  --color-secundary: #007dff;
+  --color-third: #3f91d6;
+  --text-color-primary: #ffffff;
+  --text-color-secundary: #000000;
+  --text-color-third: rgba(255, 255, 255, 0.7);
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  --font: "Open Sans", sans-serif;
+  --max-width: 1600px;
+  --header-height: 4rem;
+  --hero-opacity-color: rgba(0, 0, 0, 0.5);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: var(--font);
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  max-width: var(--max-width);
+  color: var(--text-color-primary);
+  background-color: var(--color-primary);
+}
+
+a {
+  color: var(--text-color-primary);
+  transition: all 0.5s ease-out;
+}
+
+a:hover {
+  opacity: 0.55;
+  color: var(--text-color-primary);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+h5 {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+h6 {
+  margin: 0;
+  font-size: 0.7rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  line-height: 1.6;
+}

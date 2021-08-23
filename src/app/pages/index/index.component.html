@@ -1,1 +1,29 @@
-<p>index works!</p>
+<section id="inicio" class="home">
+  <article class="hero-image">
+    <aside class="hero-image-opacity">
+      <div class="hero-image-content">
+        <h2 class="hero-image-title">
+          Difruta de La mejores peliculas <br />en un mismo lugar.
+        </h2>
+
+        <form (ngSubmit)="form.form.valid && OnLogin()" #form="ngForm">
+          <div class="login">
+            <mat-form-field appearance="fill">
+              <mat-label>Correo electronico</mat-label>
+              <input
+                type="email"
+                matInput
+                placeholder="EjemploCorreo@gmail.com"
+                [(ngModel)]="userLogin.email"
+                required
+                name="email"
+              />
+            </mat-form-field>
+
+            <button mat-raised-button type="submit">Iniciar sesion</button>
+          </div>
+        </form>
+      </div>
+    </aside>
+  </article>
+</section>

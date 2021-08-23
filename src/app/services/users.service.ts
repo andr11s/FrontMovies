@@ -1,32 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { users } from '../interfaces/user.interface';
+import { Userlocal, users } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
   private baseUrl = environment.API;
-  private ContadorPage = 1;
-  public cargando: boolean;
+  public loginEvent = new EventEmitter<users>();
+
   constructor(private httpClient: HttpClient) {}
 
-  get params() {
-    return {
-      api_key: 'b79aab3ea2da177ab454ca6f90e7cf65',
-      language: 'es-ES',
-      page: this.ContadorPage.toString(),
-    };
-  }
-
   getUser(): Observable<users[]> {
-    if (this.cargando) {
-      return of([]);
-    }
-
     return this.httpClient
       .get<users[]>(`${this.baseUrl}/users/getUsers`)
       .pipe(map((response) => response));
@@ -35,6 +23,12 @@ export class UsersService {
   SearchUserId(id: string): Observable<users> {
     return this.httpClient
       .get<users>(`${this.baseUrl}/users/getUserid/${id}`)
+      .pipe(map((Response) => Response));
+  }
+
+  SearchUserEmail(email: string): Observable<Userlocal> {
+    return this.httpClient
+      .get<Userlocal>(`${this.baseUrl}/users/getUserEmail/${email}`)
       .pipe(map((Response) => Response));
   }
 
@@ -49,5 +43,22 @@ export class UsersService {
       `${this.baseUrl}/users/updateUser`,
       query
     );
+  }
+
+  public onCreadaSesion(login: users) {
+    this.sesionValida(login) ? this.loginEvent.emit(login) : null;
+  }
+
+  public onComprobarSesion(login: users) {
+    return this.sesionValida(login) ? this.SearchUserEmail(login.email) : null;
+  }
+
+  public sesionValida(login: users) {
+    return login != null && login.email != '' && login.email != null;
+  }
+
+  onSesionIniciada(): users {
+    let sesion = sessionStorage.getItem('_sesion');
+    return sesion === null ? null : <users>JSON.parse(sesion);
   }
 }

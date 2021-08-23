@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'components-navbar',
@@ -7,7 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  constructor(private Router: Router) {}
+  session: boolean = false;
+  @Input() onsession: boolean;
+  constructor(private Router: Router, private loginService: UsersService) {
+    const sessionx = this.loginService.onSesionIniciada();
+    sessionx != null
+      ? (this.session = true)
+      : console.log('no es diferente de null');
+  }
 
   ngOnInit(): void {}
 
