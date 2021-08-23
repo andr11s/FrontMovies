@@ -20,3 +20,8 @@ export interface Userlocal {
   user: users;
   error: false;
 }
+
+export interface responseUser {
+  message: string;
+  error: boolean;
+}

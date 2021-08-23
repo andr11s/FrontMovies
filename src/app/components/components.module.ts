@@ -7,12 +7,15 @@ import { SwiperModule } from 'swiper/angular';
 import { MoviesPosterGridComponent } from './movies-poster-grid/movies-poster-grid.component';
 import { RatingModule } from 'ng-starrating';
 import { PipesModule } from '../pipes/pipes.module';
+import { RegisterUserComponent } from './register-user/register-user.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     SlideshowComponent,
     MoviesPosterGridComponent,
+    RegisterUserComponent,
   ],
   imports: [
     CommonModule,
@@ -20,6 +23,8 @@ import { PipesModule } from '../pipes/pipes.module';
     SwiperModule,
     RatingModule,
     PipesModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   exports: [NavbarComponent, SlideshowComponent, MoviesPosterGridComponent],
 })

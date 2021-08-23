@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>Registrarse</h1>
+<div mat-dialog-content>
+  <form (ngSubmit)="form.form.valid && onSubmit()" #form="ngForm">
+    <div class="row">
+      <div class="col-12">
+        <mat-form-field appearance="outline" class="mat-form-field w-100">
+          <mat-label>Nombre completo</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Digitar Nombre completo"
+            name="nombre"
+            [(ngModel)]="user.name"
+            required
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <mat-form-field appearance="outline" class="mat-form-field w-100">
+          <mat-label>Correo electronico</mat-label>
+          <input
+            type="email"
+            matInput
+            placeholder="Digitar correo"
+            name="correo"
+            [(ngModel)]="user.email"
+            required
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <mat-dialog-actions align="center">
+      <button
+        mat-raised-button
+        id="btn-color"
+        class="mb-4"
+        [mat-dialog-close]="true"
+        type="submit"
+      >
+        Guardar
+      </button>
+      <button mat-raised-button mat-dialog-close color="warn" class="mb-4">
+        Cancelar
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>

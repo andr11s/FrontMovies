@@ -3,7 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Userlocal, users } from '../interfaces/user.interface';
+import {
+  responseUser,
+  UserClass,
+  Userlocal,
+  users,
+} from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -32,14 +37,13 @@ export class UsersService {
       .pipe(map((Response) => Response));
   }
 
-  saveUser(query: users): Observable<string> {
-    return this.httpClient.post<string>(
-      `${this.baseUrl}/users/createUser`,
-      query
-    );
+  saveUser(query: UserClass): Observable<responseUser> {
+    return this.httpClient
+      .post<responseUser>(`${this.baseUrl}/users/createUser`, query)
+      .pipe(map((response) => response));
   }
-  updateUser(query: users): Observable<string> {
-    return this.httpClient.post<string>(
+  updateUser(query: users): Observable<responseUser> {
+    return this.httpClient.post<responseUser>(
       `${this.baseUrl}/users/updateUser`,
       query
     );
