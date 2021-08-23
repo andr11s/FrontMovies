@@ -36,15 +36,21 @@
     </div>
 
     <div class="row text-white">
-        <div class="col">
-            <span class="badge badge-warning alerta" *ngFor="let genres of movie.genres">{{genres.name}}</span>
-          </div>
+      <div class="col">
+        <span
+          class="badge badge-warning alerta"
+          *ngFor="let genres of movie.genres"
+          >{{ genres.name }}</span
+        >
+      </div>
     </div>
-  </div>
- 
-</div>
-<div class="row" *ngIf="MovieCast.length > 0">
-  <div class="col-12">
-      <components-cast-slideshow [MCast]="MovieCast" ></components-cast-slideshow>
+
+    <div class="row p-1">
+      <div class="col">
+        <a class="btn btn-primary" (click)="onSave()" role="button"
+          >Agregar a favoritos</a
+        >
+      </div>
+    </div>
   </div>
 </div>

@@ -6,13 +6,14 @@ import { SearchMovieComponent } from './search-movie/search-movie.component';
 import { ComponentsModule } from '../components/components.module';
 import { PipesModule } from '../pipes/pipes.module';
 import { RatingModule } from 'ng-starrating';
+import { IndexComponent } from './index/index.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     MovieComponent, 
-    SearchMovieComponent
+    SearchMovieComponent, IndexComponent
     ],
   imports: [
     CommonModule,

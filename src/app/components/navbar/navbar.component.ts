@@ -16,9 +16,7 @@ export class NavbarComponent implements OnInit {
   }
 
   SearchMovie(Textmovie: string) {
-    console.log(Textmovie);
     Textmovie = Textmovie.trim();
-
     if (Textmovie.length == 0) {
       return;
     }

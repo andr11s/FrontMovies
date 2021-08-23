@@ -25,7 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     NgbModule,
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'es-Co' }],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

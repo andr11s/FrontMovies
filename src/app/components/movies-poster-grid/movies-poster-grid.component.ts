@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Movie } from 'src/app/interfaces/cartelera-response';
 import { StarRatingComponent } from 'ng-starrating';
 import { Router } from '@angular/router';
+import { movie } from 'src/app/interfaces/movies.interface';
+import { moviesApi } from 'src/app/interfaces/moviesApi.interface';
 
 @Component({
   selector: 'components-movies-poster-grid',
@@ -9,13 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./movies-poster-grid.component.css'],
 })
 export class MoviesPosterGridComponent implements OnInit {
-  @Input() movies: Movie;
+  @Input() movies: moviesApi;
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
-  onMovie(movie: Movie) {
+  onMovie(movie: moviesApi) {
     this.router.navigate(['/movie', movie.id]);
   }
 }
