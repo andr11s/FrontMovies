@@ -1,0 +1,14 @@
+
+<h1>Pelicula a buscar: {{ id }}</h1>
+
+<div class="row text-center" style="padding: 10px; color: white;" *ngIf="loading">
+    <div class="col">
+        <i class="far fa-sync fa-spin fa-5x"></i>
+    </div>
+</div>
+
+
+<components-movies-poster-grid
+    *ngIf="!loading"
+  [movies]="MovieSearch"
+></components-movies-poster-grid>
