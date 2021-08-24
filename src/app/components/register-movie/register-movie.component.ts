@@ -32,9 +32,6 @@ export class RegisterMovieComponent implements OnInit {
     this.creteaMovie.userId = this.data.user[0]._id;
     this.creteaMovie.movies.push(movieMappi(this.data.movies[0]));
     this.creteaMovie.movie_id = this.data.movies[0].id.toString();
-
-    console.log(this.creteaMovie);
-
     this.movieService
       .saveMovie(this.creteaMovie)
       .subscribe((Response: ResponseMovie) => {

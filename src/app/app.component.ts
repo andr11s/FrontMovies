@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FrontMovies';
-  session: boolean = false;
+  session: boolean = true;
 }

@@ -1,4 +1,4 @@
-<header class="header" *ngIf="!onsession && session">
+<header class="header">
   <mat-toolbar class="mattoolbar">
     <span class="example-spacer"></span>
 
@@ -18,12 +18,5 @@
         <span>Cerrar sesion</span>
       </button>
     </mat-menu>
-  </mat-toolbar>
-</header>
-
-<header class="header" *ngIf="!onsession && !session">
-  <mat-toolbar class="mattoolbar">
-    <span class="example-spacer"></span>
-    <a mat-button (click)="openDialog()">REGISTRARSE</a>
   </mat-toolbar>
 </header>
