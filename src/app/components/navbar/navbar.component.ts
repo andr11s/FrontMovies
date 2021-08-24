@@ -15,7 +15,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     private Router: Router,
     private loginService: UsersService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private PageRoutes: Router
   ) {
     const sessionx = this.loginService.onSesionIniciada();
     sessionx != null
@@ -40,5 +41,10 @@ export class NavbarComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(RegisterUserComponent);
+  }
+
+  cerrarSesion() {
+    this.loginService.cerrarSesion();
+    this.PageRoutes.navigateByUrl('/index');
   }
 }

@@ -65,4 +65,8 @@ export class UsersService {
     let sesion = sessionStorage.getItem('_sesion');
     return sesion === null ? null : <users>JSON.parse(sesion);
   }
+
+  cerrarSesion() {
+    sessionStorage.clear();
+  }
 }

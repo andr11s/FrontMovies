@@ -4,6 +4,24 @@
 
     <a mat-button (click)="navegar('home')">INICIO</a>
     <button mat-button (click)="navegar('movief')">PELICULAS FAVORITAS</button>
+
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Actualizar nombre</span>
+      </button>
+      <button mat-menu-item (click)="cerrarSesion()">
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar sesion</span>
+      </button>
+    </mat-menu>
   </mat-toolbar>
 </header>
 
