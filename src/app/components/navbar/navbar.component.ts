@@ -39,10 +39,6 @@ export class NavbarComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(RegisterUserComponent, {
-      data: {
-        animal: 'panda',
-      },
-    });
+    this.dialog.open(RegisterUserComponent);
   }
 }

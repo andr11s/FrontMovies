@@ -6,6 +6,10 @@ import { Location } from '@angular/common';
 import { combineLatest } from 'rxjs';
 import { movie } from 'src/app/interfaces/movies.interface';
 import { moviesApi } from 'src/app/interfaces/moviesApi.interface';
+import { UsersService } from 'src/app/services/users.service';
+import { users } from 'src/app/interfaces/user.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { RegisterMovieComponent } from 'src/app/components/register-movie/register-movie.component';
 
 @Component({
   selector: 'app-movie',
@@ -15,12 +19,18 @@ import { moviesApi } from 'src/app/interfaces/moviesApi.interface';
 export class MovieComponent implements OnInit {
   public MovieDetail: moviesApi[] = [];
   public Moviefavorite = new movie();
+  public session: users;
+
   constructor(
     private activeRouter: ActivatedRoute,
     private movieService: MovieService,
     private Location: Location,
-    private router: Router
-  ) {}
+    private router: Router,
+    private loginService: UsersService,
+    private dialog: MatDialog
+  ) {
+    this.session = this.loginService.onSesionIniciada();
+  }
 
   ngOnInit(): void {
     const { id } = this.activeRouter.snapshot.params;
@@ -36,7 +46,15 @@ export class MovieComponent implements OnInit {
   }
 
   onSave() {
-    this.Moviefavorite.userId = '1';
-    this.Moviefavorite.description = 'Esto es un descripcion';
+    this.dialog.open(RegisterMovieComponent, {
+      width: '500px',
+      height: '400px',
+      data: {
+        user: this.session,
+        movies: this.MovieDetail,
+      },
+    });
+
+    this.Moviefavorite.userId = this.session._id;
   }
 }

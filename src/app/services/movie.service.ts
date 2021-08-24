@@ -18,6 +18,7 @@ export class MovieService {
   private baseUrl = environment.API;
   private ContadorPage = 1;
   public cargando: boolean;
+
   constructor(private httpClient: HttpClient) {}
 
   getMovies(genre: SearchMovie): Observable<moviesApi[]> {
@@ -46,5 +47,14 @@ export class MovieService {
     return this.httpClient
       .get<moviesApi[]>(`${this.baseUrl}/movies/getSearchName`, { params })
       .pipe(map((response) => response));
+  }
+
+  saveMovie(movie: movie) {
+    const params = { ...movie };
+    console.log(params);
+
+    return this.httpClient
+      .post(`${this.baseUrl}/movies/createMovie`, params)
+      .pipe(map((Response) => Response));
   }
 }

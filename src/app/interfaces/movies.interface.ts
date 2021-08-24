@@ -1,13 +1,17 @@
 import { moviesApi } from './moviesApi.interface';
 
 export class movie {
-  _id?: string;
   movies: moviesApi[];
   userId: string;
   movie_id: string;
   description: string;
 
-  constructor() {}
+  constructor() {
+    this.userId = '';
+    this.movies = [];
+    this.movie_id = '';
+    this.description = '';
+  }
 }
 
 export interface GenreMovie {

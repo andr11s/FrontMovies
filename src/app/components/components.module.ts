@@ -9,6 +9,7 @@ import { RatingModule } from 'ng-starrating';
 import { PipesModule } from '../pipes/pipes.module';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterMovieComponent } from './register-movie/register-movie.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SlideshowComponent,
     MoviesPosterGridComponent,
     RegisterUserComponent,
+    RegisterMovieComponent,
   ],
   imports: [
     CommonModule,
