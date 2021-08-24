@@ -5,7 +5,11 @@ import {
   Inject,
 } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MoviesFavorites } from 'src/app/interfaces/movies.interface';
+import {
+  MoviesFavorites,
+  ResponseMovie,
+} from 'src/app/interfaces/movies.interface';
+import { AlertService } from 'src/app/services/alert.service';
 import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
@@ -19,7 +23,8 @@ export class UpdateMovieComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<MoviesFavorites>,
     @Inject(MAT_DIALOG_DATA) public data: { onmovie: MoviesFavorites },
-    private movieService: MovieService
+    private movieService: MovieService,
+    private alertService: AlertService
   ) {
     this.movi = this.data[0];
   }
@@ -31,8 +36,18 @@ export class UpdateMovieComponent implements OnInit {
 
     this.movieService
       .updateMovie({ description, _id })
-      .subscribe((Response) => {
-        console.log('update', Response);
+      .subscribe((Response: ResponseMovie) => {
+        if (!Response.error) {
+          this.alertService.alertMessage({
+            message: Response.message,
+            icon: 'success',
+          });
+        } else {
+          this.alertService.alertMessage({
+            message: Response.message,
+            icon: 'error',
+          });
+        }
       });
   }
 }

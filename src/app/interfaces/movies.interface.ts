@@ -36,3 +36,8 @@ export interface MoviesFavorites {
   movies: moviesApi;
   description: string;
 }
+
+export interface ResponseMovie {
+  error: boolean;
+  message: string;
+}

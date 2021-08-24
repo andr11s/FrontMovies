@@ -108,3 +108,7 @@ p {
 .fadeIn {
   animation-name: fadeIn;
 }
+
+.mat-form-field {
+  width: 100%;
+}
