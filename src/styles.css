@@ -112,3 +112,10 @@ p {
 .mat-form-field {
   width: 100%;
 }
+.mat-form-field-infix {
+  color: #fff;
+}
+
+.mat-input-element {
+  caret-color: #000;
+}

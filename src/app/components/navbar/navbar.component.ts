@@ -10,19 +10,14 @@ import { RegisterUserComponent } from '../register-user/register-user.component'
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  session: boolean = false;
+  session: boolean = true;
   @Input() onsession: boolean;
   constructor(
     private Router: Router,
     private loginService: UsersService,
     public dialog: MatDialog,
     private PageRoutes: Router
-  ) {
-    const sessionx = this.loginService.onSesionIniciada();
-    sessionx != null
-      ? (this.session = true)
-      : console.log('no es diferente de null');
-  }
+  ) {}
 
   ngOnInit(): void {}
 

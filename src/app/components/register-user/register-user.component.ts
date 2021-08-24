@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResponseMovie } from 'src/app/interfaces/movies.interface';
 import { UserClass } from 'src/app/interfaces/user.interface';
 import { AlertService } from 'src/app/services/alert.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -17,8 +18,20 @@ export class RegisterUserComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    this.userService.saveUser(this.user).subscribe((response) => {
-      console.log(response);
-    });
+    this.userService
+      .saveUser(this.user)
+      .subscribe((response: ResponseMovie) => {
+        if (!response.error) {
+          this.alerService.alertMessage({
+            message: response.message,
+            icon: 'success',
+          });
+        } else {
+          this.alerService.alertMessage({
+            message: response.message,
+            icon: 'error',
+          });
+        }
+      });
   }
 }
