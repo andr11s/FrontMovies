@@ -32,6 +32,8 @@ export class UsersService {
   }
 
   SearchUserEmail(email: string): Observable<Userlocal> {
+    console.log(email);
+
     return this.httpClient
       .get<Userlocal>(`${this.baseUrl}/users/getUserEmail/${email}`)
       .pipe(map((Response) => Response));
@@ -54,7 +56,12 @@ export class UsersService {
   }
 
   public onComprobarSesion(login: users) {
-    return this.sesionValida(login) ? this.SearchUserEmail(login.email) : null;
+    if (this.sesionValida(login)) {
+      return this.SearchUserEmail(login.email);
+    } else {
+      console.log('es invalido');
+      return null;
+    }
   }
 
   public sesionValida(login: users) {

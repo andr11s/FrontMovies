@@ -21,7 +21,7 @@
         <mat-form-field appearance="outline" class="mat-form-field w-100">
           <mat-label>Correo electronico</mat-label>
           <input
-            type="email"
+            pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
             matInput
             placeholder="Digitar correo"
             name="correo"

@@ -1,9 +1,13 @@
 .poster {
   border-radius: 10px;
-  box-shadow: 0px 0px 10px #0f0;
+  box-shadow: 0px 0px 10px rgb(255, 255, 255);
   margin: 10px;
 }
 
 .h3 {
   font-size: 12px;
+}
+
+.nomovie {
+  text-align: center;
 }
