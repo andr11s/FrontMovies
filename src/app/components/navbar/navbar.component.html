@@ -13,10 +13,6 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <mat-icon>settings</mat-icon>
-        <span>Actualizar nombre</span>
-      </button>
       <button mat-menu-item (click)="cerrarSesion()">
         <mat-icon>logout</mat-icon>
         <span>Cerrar sesion</span>
@@ -29,31 +25,5 @@
   <mat-toolbar class="mattoolbar">
     <span class="example-spacer"></span>
     <a mat-button (click)="openDialog()">REGISTRARSE</a>
-    <!-- <mat-form-field class="example-form-field">
-      <mat-label>Buscar Pelicula</mat-label>
-      <input
-        matInput
-        type="text"
-        #movieSearch
-        (keyup.enter)="SearchMovie(movieSearch.value)"
-      />
-      <button
-        class="example_button"
-        (click)="SearchMovie(movieSearch.value)"
-        mat-button
-        matSuffix
-        mat-icon-button
-        aria-label="send"
-      >
-        <mat-icon>send</mat-icon>
-      </button>
-    </mat-form-field> -->
-    <!-- <button
-      mat-icon-button
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
-    >
-      <mat-icon>favorite</mat-icon>
-    </button> -->
   </mat-toolbar>
 </header>

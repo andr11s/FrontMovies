@@ -1,55 +1,57 @@
-<div class="row" *ngFor="let movie of MovieDetail">
-  <div class="row p-2">
-    <div class="col-md-2">
-      <a class="btn btn-primary" (click)="onBackPage()" role="button"
-        >Regresar</a
-      >
-    </div>
-  </div>
-  <div class="col-md-6">
-    <img [src]="movie.poster_path | moviePoster" class="img-thumbnail" />
-  </div>
-  <div class="col-md-6">
-    <h3>{{ movie.original_title }}</h3>
-    <div class="row">
-      <div class="col">
-        <star-rating
-          [value]="movie.vote_average"
-          checkedcolor="yellow"
-          uncheckedcolor="grey"
-          size="16px"
-          readonly="false"
-          totalstars="10"
-        ></star-rating>
-      </div>
-      <div class="col text-white">
-        {{ movie.vote_average | number: "1.1-2" }}
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <p>
-          {{ movie.overview }}
-        </p>
-      </div>
-    </div>
-
-    <div class="row text-white">
-      <div class="col">
-        <span
-          class="badge badge-warning alerta"
-          *ngFor="let genres of movie.genres"
-          >{{ genres.name }}</span
+<div class="container mt-5">
+  <div class="row" *ngFor="let movie of MovieDetail">
+    <div class="row p-2">
+      <div class="col-md-2">
+        <a class="btn btn-primary" (click)="onBackPage()" role="button"
+          >Regresar</a
         >
       </div>
     </div>
+    <div class="col-md-6">
+      <img [src]="movie.poster_path | moviePoster" class="img-thumbnail" />
+    </div>
+    <div class="col-md-6">
+      <h3>{{ movie.original_title }}</h3>
+      <div class="row">
+        <div class="col">
+          <star-rating
+            [value]="movie.vote_average"
+            checkedcolor="yellow"
+            uncheckedcolor="grey"
+            size="16px"
+            readonly="false"
+            totalstars="10"
+          ></star-rating>
+        </div>
+        <div class="col text-white">
+          {{ movie.vote_average | number: "1.1-2" }}
+        </div>
+      </div>
 
-    <div class="row p-1">
-      <div class="col">
-        <a class="btn btn-primary" (click)="onSave()" role="button"
-          >Agregar a favoritos</a
-        >
+      <div class="row">
+        <div class="col">
+          <p>
+            {{ movie.overview }}
+          </p>
+        </div>
+      </div>
+
+      <div class="row text-white">
+        <div class="col">
+          <span
+            class="badge badge-warning alerta"
+            *ngFor="let genres of movie.genres"
+            >{{ genres.name }}</span
+          >
+        </div>
+      </div>
+
+      <div class="row p-1">
+        <div class="col">
+          <a class="btn btn-primary" (click)="onSave()" role="button"
+            >Agregar a favoritos</a
+          >
+        </div>
       </div>
     </div>
   </div>

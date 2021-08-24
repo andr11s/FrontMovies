@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterMovieComponent } from './register-movie/register-movie.component';
 import { MoviesFavoritesComponent } from './movies-favorites/movies-favorites.component';
 import { UpdateMovieComponent } from './update-movie/update-movie.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { UpdateMovieComponent } from './update-movie/update-movie.component';
     RegisterMovieComponent,
     MoviesFavoritesComponent,
     UpdateMovieComponent,
+    LoadingComponent,
   ],
   imports: [
     CommonModule,

@@ -91,7 +91,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ];
 
   constructor(private serviceMovie: MovieService) {}
-
+  loading: boolean;
   @HostListener('window:scroll', ['$event'])
   onScroll() {
     const pos =
@@ -99,14 +99,17 @@ export class HomeComponent implements OnInit, OnDestroy {
     const max =
       document.documentElement.scrollHeight || document.body.scrollHeight;
 
-    // if (pos > max) {
-    //   this.serviceMovie.getMovies().subscribe((response) => {
-    //     this.movies.push(...response);
-    //   });
-    // }
+    if (pos > max) {
+      this.serviceMovie
+        .getMovies({ with_genres: '27', page: '1' })
+        .subscribe((response) => {
+          this.movies.push(...response);
+        });
+    }
   }
 
   ngOnInit(): void {
+    this.loading = true;
     this.serviceMovie
       .getMovies({ with_genres: '80', page: '1' })
       .subscribe((Response) => {

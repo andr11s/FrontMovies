@@ -40,7 +40,10 @@ export class NavbarComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(RegisterUserComponent);
+    this.dialog.open(RegisterUserComponent, {
+      width: '50%',
+      height: '47%',
+    });
   }
 
   cerrarSesion() {

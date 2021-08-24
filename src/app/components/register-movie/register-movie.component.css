@@ -1,0 +1,8 @@
+.mat-form-field {
+  width: 100%;
+  height: 180px;
+}
+
+textarea.mat-input-element {
+  height: 150px;
+}

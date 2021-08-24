@@ -48,7 +48,7 @@ export class MovieComponent implements OnInit {
   onSave() {
     this.dialog.open(RegisterMovieComponent, {
       width: '500px',
-      height: '400px',
+      height: '350px',
       data: {
         user: this.session,
         movies: this.MovieDetail,
