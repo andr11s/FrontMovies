@@ -2,34 +2,8 @@
   <mat-toolbar class="mattoolbar">
     <span class="example-spacer"></span>
 
-    <a mat-button>INICIO</a>
-    <a mat-button>PELICULAS FAVORITAS</a>
-    <!-- <mat-form-field class="example-form-field">
-      <mat-label>Buscar Pelicula</mat-label>
-      <input
-        matInput
-        type="text"
-        #movieSearch
-        (keyup.enter)="SearchMovie(movieSearch.value)"
-      />
-      <button
-        class="example_button"
-        (click)="SearchMovie(movieSearch.value)"
-        mat-button
-        matSuffix
-        mat-icon-button
-        aria-label="send"
-      >
-        <mat-icon>send</mat-icon>
-      </button>
-    </mat-form-field> -->
-    <!-- <button
-      mat-icon-button
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
-    >
-      <mat-icon>favorite</mat-icon>
-    </button> -->
+    <a mat-button (click)="navegar('home')">INICIO</a>
+    <button mat-button (click)="navegar('movief')">PELICULAS FAVORITAS</button>
   </mat-toolbar>
 </header>
 

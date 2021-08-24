@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Actualizar descripcion</h1>
+<div mat-dialog-content>
+  <form (ngSubmit)="form.form.valid && onSubmit()" #form="ngForm">
+    <div class="row">
+      <div class="col-12">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Modificar descripcion</mat-label>
+          <textarea
+            matInput
+            placeholder="Esta pelicula es muy divetida..."
+            name="description"
+            [(ngModel)]="movi.description"
+          ></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-dialog-actions align="center">
+      <button
+        mat-raised-button
+        id="btn-color"
+        class="mb-4"
+        [mat-dialog-close]="true"
+        type="submit"
+      >
+        Guardar
+      </button>
+      <button mat-raised-button mat-dialog-close color="warn" class="mb-4">
+        Cancelar
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>

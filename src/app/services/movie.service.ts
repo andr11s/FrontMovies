@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import {
   GenreMovie,
   movie,
+  MoviesFavorites,
   SearchMovie,
   SearchMovieName,
 } from '../interfaces/movies.interface';
@@ -49,12 +50,28 @@ export class MovieService {
       .pipe(map((response) => response));
   }
 
+  getMovieByUser(id: string): Observable<MoviesFavorites[]> {
+    return this.httpClient
+      .get<MoviesFavorites[]>(`${this.baseUrl}/movies/MoviesByUser/${id}`)
+      .pipe(map((response) => response));
+  }
+
   saveMovie(movie: movie) {
     const params = { ...movie };
-    console.log(params);
-
     return this.httpClient
       .post(`${this.baseUrl}/movies/createMovie`, params)
+      .pipe(map((Response) => Response));
+  }
+
+  updateMovie({ ...movie }) {
+    return this.httpClient
+      .put(`${this.baseUrl}/movies/updateDescription`, movie)
+      .pipe(map((Response) => Response));
+  }
+
+  deleteMovie(id: string) {
+    return this.httpClient
+      .delete(`${this.baseUrl}/movies/deleteMovie/${id}`)
       .pipe(map((Response) => Response));
   }
 }

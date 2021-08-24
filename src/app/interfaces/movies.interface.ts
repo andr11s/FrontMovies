@@ -28,3 +28,11 @@ export interface SearchMovieName {
   query: string;
   page: string;
 }
+
+export interface MoviesFavorites {
+  _id: string;
+  userId: string;
+  movie_id: string;
+  movies: moviesApi;
+  description: string;
+}

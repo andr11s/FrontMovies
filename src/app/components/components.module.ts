@@ -10,6 +10,8 @@ import { PipesModule } from '../pipes/pipes.module';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterMovieComponent } from './register-movie/register-movie.component';
+import { MoviesFavoritesComponent } from './movies-favorites/movies-favorites.component';
+import { UpdateMovieComponent } from './update-movie/update-movie.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { RegisterMovieComponent } from './register-movie/register-movie.componen
     MoviesPosterGridComponent,
     RegisterUserComponent,
     RegisterMovieComponent,
+    MoviesFavoritesComponent,
+    UpdateMovieComponent,
   ],
   imports: [
     CommonModule,
